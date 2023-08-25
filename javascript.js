@@ -10,25 +10,31 @@ function getComputerChoice(choice){
     else if (choice === 3)
         return "scissors"; 
 }
+function game(result){
 /*playRound function*/
-
-function playRound(playerSelection, computerSelection){
-    if (
-    (computerSelection == "rock" && playerSelection == "scissors") ||
-    (computerSelection == "scissors" && playerSelection == "paper") ||
-    (computerSelection == "paper" && playerSelection == "rock")){
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
-    }else if (
-    (computerSelection == "rock" && playerSelection == "paper") ||
-    (computerSelection == "scissors" && playerSelection == "rock") ||
-    (computerSelection == "paper" && playerSelection == "scissors")){
-        return `You win! ${playerSelection} beats ${computerSelection}`;
-    }else{
-        return `Tie! ${playerSelection} cannot beat ${computerSelection}`;
+    function playRound(playerSelection, computerSelection){
+        if (
+        (computerSelection == "rock" && playerSelection == "scissors") ||
+        (computerSelection == "scissors" && playerSelection == "paper") ||
+        (computerSelection == "paper" && playerSelection == "rock")){
+            return `You lose! ${computerSelection} beats ${playerSelection}`;
+        }else if (
+        (computerSelection == "rock" && playerSelection == "paper") ||
+        (computerSelection == "scissors" && playerSelection == "rock") ||
+        (computerSelection == "paper" && playerSelection == "scissors")){
+            return `You win! ${playerSelection} beats ${computerSelection}`;
+        }else{
+            return `Tie! ${playerSelection} cannot beat ${computerSelection}`;
+        }
+    }
+    /*Create loop to loop over function*/
+    for (let result = 1; result < 6; result++){
+        const playerSelection = prompt("Rock paper or scissors?").toLowerCase();
+        const computerSelection = getComputerChoice();
+        console.log(playerSelection);
+        console.log(computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(result);
     }
 }
-const playerSelection = prompt("Rock paper or scissors?").toLowerCase();
-const computerSelection = getComputerChoice()
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+game();
