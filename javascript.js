@@ -4,10 +4,10 @@ function getComputerChoice(choice){
     choice = Math.floor(Math.random() * 3) + 1;
     /* if math.random() has one, return, rock, two, paper, three, scissors*/
     if (choice === 1){
-        return "rock";
+        return "Rock";
     }else if (choice === 2)
-        return "paper";
+        return "Paper";
     else if (choice === 3)
-        return "scissors"; 
+        return "Scissors"; 
 }
 
