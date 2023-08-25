@@ -40,3 +40,4 @@ function game(result){
     }
 }
 game();
+console.log("End of the game!")
