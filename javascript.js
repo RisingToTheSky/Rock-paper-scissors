@@ -10,9 +10,11 @@ function getComputerChoice(choice){
     else if (choice === 3)
         return "scissors"; 
 }
+/*Game function*/
 function game(result){
 /*playRound function*/
     function playRound(playerSelection, computerSelection){
+        /*if statement to check who wins*/
         if (
         (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "paper") ||
@@ -27,14 +29,14 @@ function game(result){
             return `Tie! ${playerSelection} cannot beat ${computerSelection}`;
         }
     }
-    /*Create loop to loop over function*/
-    for (let result = 1; result < 6; result++){
+    /*Create loop to loop over function and to display round count*/
+    for (let roundCount = 1; roundCount < 6; roundCount++){
         const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playerSelection);
         console.log(computerSelection);
         console.log(playRound(playerSelection, computerSelection));
-        console.log(result);
+        console.log(`Round count: ${roundCount}`);
     }
 }
 game();
