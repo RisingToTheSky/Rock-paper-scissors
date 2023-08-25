@@ -29,7 +29,7 @@ function game(result){
     }
     /*Create loop to loop over function*/
     for (let result = 1; result < 6; result++){
-        const playerSelection = prompt("Rock paper or scissors?").toLowerCase();
+        const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
         const computerSelection = getComputerChoice();
         console.log(playerSelection);
         console.log(computerSelection);
