@@ -19,14 +19,14 @@ function game(result){
         (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "scissors" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "rock")){
-            return `You lose! ${computerSelection} beats ${playerSelection}`;
+            return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
         }else if (
         (computerSelection == "rock" && playerSelection == "paper") ||
         (computerSelection == "scissors" && playerSelection == "rock") ||
         (computerSelection == "paper" && playerSelection == "scissors")){
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+            return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
         }else{
-            return `Tie! ${playerSelection} cannot beat ${computerSelection}`;
+            return `Tie! ${capitalize(playerSelection)} cannot beat ${capitalize(computerSelection)}`;
         }
     }
     /*Create loop to loop over function and to display round count*/
@@ -38,6 +38,10 @@ function game(result){
         console.log(playRound(playerSelection, computerSelection));
         console.log(`Round count: ${roundCount}`);
     }
+    /*Capitalize text*/
+    function capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 }
 game();
-console.log("End of the game!")
+console.log("End of the game!");
