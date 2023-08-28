@@ -30,16 +30,6 @@ function game(result){
         }
     }
     /*Create loop to loop over function and to display round count*/
-    for (let roundCount = 1; roundCount < 6; roundCount++){
-        const playerSelection = prompt("Rock, paper or scissors?").toLowerCase();
-        const computerSelection = getComputerChoice();
-        console.log(playerSelection);
-        console.log(computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(`Player score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-        console.log(`Round count: ${roundCount}`);
-    }
     /*Capitalize text for the return functions*/
     function capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
