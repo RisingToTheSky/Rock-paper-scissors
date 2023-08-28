@@ -5,6 +5,7 @@ const computerText = document.querySelector('#computerText');
 let playerScore = 0;
 let computerScore = 0;
 const resultText = document.querySelector('#resultText');
+const finalResultText = document.querySelector('#finalResultText')
 
 /*Button functions*/
 buttons.forEach(button => button.addEventListener("click", () =>{
@@ -15,6 +16,7 @@ buttons.forEach(button => button.addEventListener("click", () =>{
     scoreTextPlayer.textContent = `Player Score: ${playerScore}`
     scoreTextComputer.textContent = `Computer Score: ${computerScore}`
     resultText.textContent = `Result: ${playRound(playerSelection, computerSelection)}`;
+    finalResultText.textContent = `${determineWinner()}`;
 }))
 
 function getComputerChoice(choice){    
@@ -33,18 +35,28 @@ function playRound(playerSelection, computerSelection){
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "paper") ||
     (computerSelection == "paper" && playerSelection == "rock")){
-        computerScore++;
+        ++computerScore;
         return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
     }else if (
     (computerSelection == "rock" && playerSelection == "paper") ||
     (computerSelection == "scissors" && playerSelection == "rock") ||
     (computerSelection == "paper" && playerSelection == "scissors")){
-        playerScore++;
+        ++playerScore;
         return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
     }else{
         return `Tie! ${capitalize(playerSelection)} cannot beat ${capitalize(computerSelection)}`;
     }
 }
+function determineWinner(){
+    if (playerScore === 5){
+        return "Player wins!";
+    }else if (computerScore === 5){
+        return "Computer wins!";
+    }else{
+        return "Who will win?";
+    }
+}
+   
 
     /*Create loop to loop over function and to display round count*/
     /*Capitalize text for the return functions*/
