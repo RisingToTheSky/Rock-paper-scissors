@@ -16,9 +16,11 @@ buttons.forEach(button => button.addEventListener("click", () =>{
     scoreTextPlayer.textContent = `Player Score: ${playerScore}`
     scoreTextComputer.textContent = `Computer Score: ${computerScore}`
     resultText.textContent = `Result: ${playRound(playerSelection, computerSelection)}`;
-    finalResultText.textContent = `${determineWinner()}`;
+    if (playerScore === 5 || computerScore === 5){
+        finalResultText.textContent = `${determineWinner()}`;
+        endGame();
+    }
 }))
-
 function getComputerChoice(choice){    
     choice = Math.floor(Math.random() * 3) + 1;
 
@@ -35,13 +37,13 @@ function playRound(playerSelection, computerSelection){
     (computerSelection == "rock" && playerSelection == "scissors") ||
     (computerSelection == "scissors" && playerSelection == "paper") ||
     (computerSelection == "paper" && playerSelection == "rock")){
-        ++computerScore;
+        computerScore++;
         return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
     }else if (
     (computerSelection == "rock" && playerSelection == "paper") ||
     (computerSelection == "scissors" && playerSelection == "rock") ||
     (computerSelection == "paper" && playerSelection == "scissors")){
-        ++playerScore;
+        playerScore++;
         return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
     }else{
         return `Tie! ${capitalize(playerSelection)} cannot beat ${capitalize(computerSelection)}`;
@@ -56,11 +58,12 @@ function determineWinner(){
         return "Who will win?";
     }
 }
-   
-
-    /*Create loop to loop over function and to display round count*/
     /*Capitalize text for the return functions*/
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+function endGame(){
+    playerScore = 0;
+    computerScore = 0;
+}
