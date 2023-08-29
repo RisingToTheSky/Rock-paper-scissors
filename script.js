@@ -6,6 +6,7 @@ let playerScore = 0;
 let computerScore = 0;
 const resultText = document.querySelector('#resultText');
 const finalResultText = document.querySelector('#finalResultText')
+const playAgain = document.querySelector('#playAgain'); 
 
 /*Button functions*/
 buttons.forEach(button => button.addEventListener("click", () =>{
